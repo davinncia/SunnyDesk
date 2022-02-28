@@ -44,7 +44,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.unit.IntSize
 import kotlinx.coroutines.launch
 
-private const val API_KEY = ""
+private const val API_KEY = "tDTaDKTew5kBgS"
 
 fun main() = Window {
   var text by remember { mutableStateOf("Hello, World!") }
