@@ -47,7 +47,21 @@ class Repository(
   private val apiKey: String,
   private val client: HttpClient = defaultHttpClient,
 ) {
-  suspend fun getWeatherForCity(city: String): WeatherResponse =
+
+  private val transformer = WeatherTransformer()
+
+  suspend fun weatherForCity(city: String): Lce<WeatherResults> {
+    return try {
+      val result = getWeatherForCity(city)
+      val content = transformer.transform(result)
+      Lce.Content(content)
+    } catch (e: Exception) {
+      e.printStackTrace()
+      Lce.Error(e)
+    }
+  }
+
+  private suspend fun getWeatherForCity(city: String): WeatherResponse =
     client.get(
       "https://api.weatherapi.com/v1/forecast.json" +
           "?key=$apiKey" +
