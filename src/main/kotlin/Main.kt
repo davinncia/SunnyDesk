@@ -44,7 +44,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.unit.IntSize
 import kotlinx.coroutines.launch
 
-private const val API_KEY = "tDTaDKTew5kBgS"
+private const val API_KEY = "36aff54664b1448d9bb155758222802"
 
 fun main() = Window(
   title = "Sunny Desk",
